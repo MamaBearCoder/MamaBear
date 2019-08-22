@@ -23,7 +23,7 @@
         <td th:text="${message.date}"></td>
         <td th:text="${message.sentby}"></td>
         <td th:if="${message.image}!= null">
-            <img th:src="${message.image}" /></td>
+            <img class="img-rounded" th:src="${message.image}" /></td>
         <td>
             <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
             <a th:href="@{/detail/{id}(id=${message.id})}">Details</a> -

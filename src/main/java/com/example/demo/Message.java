@@ -20,8 +20,8 @@ public class Message {
     private String content;
 
     @NotNull
-    @Min(3)
-    private int date;
+    @Size(min = 3)
+    private String date;
 
     @NotNull
     @Size(min = 4)
@@ -45,11 +45,11 @@ public class Message {
         this.content = content;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -67,4 +67,5 @@ public class Message {
 
     public void setImage(String image) {
         this.image = image;
-    }}
+    }
+}
