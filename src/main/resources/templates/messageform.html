@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+<form action="#" th:action="@{/process}" th:object="${message}" method="post">
+   Content: <input type="text" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br />
+
+    Date: <input type="text" th:field="*{date}" />
+    <span th:if="${#fields.hasErrors('date')}"
+          th:errors="*{date}"></span><br />
+
+    Sent by: <input type="text" th:field="*{sentby}" />
+    <span th:if="${#fields.hasErrors('sentby')}"
+          th:errors="*{sentby}"></span><br />
+    <br />
+    <input type="submit" value="Submit" /><br />
+    <a href="/add">Add New Message</a>
+</form>
+</body>
+</html>
