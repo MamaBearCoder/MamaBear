@@ -2,25 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Message Board</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
 </head>
 <body>
+<div th:replace="base :: navlinks"></div>
 <a href="/add">Add New Message</a><br />
 <table>
     <tr>
         <th>Content</th>
         <th>Date</th>
         <th>Sent By</th>
+        <th>Image</th>
         <td>Actions</td>
         <tr />
+
     <tr th:each="message : ${messages}">
+
         <td th:text="${message.content}"></td>
         <td th:text="${message.date}"></td>
         <td th:text="${message.sentby}"></td>
+        <td th:if="${message.image}!= null">
+            <img th:src="${message.image}" /></td>
         <td>
-            <a href="@{/update/{id}(id=${message.id})}">Update</a> -
-            <a href="@{/update/{id}(id=${message.id})}"></a> Details
+            <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${message.id})}">Details</a> -
+            <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+
         </td>
     </tr>
 </table>
