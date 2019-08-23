@@ -24,7 +24,7 @@ public class Message {
     private String date;
 
     @NotNull
-    @Size(min = 4)
+    @Size(min =1)
     private String sentby;
 
     private String image;
