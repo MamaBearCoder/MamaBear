@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+
 import java.io.IOException;
 import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.Map;
@@ -35,8 +36,13 @@ public class CloudinaryConfig {
                             int height, String action){
         return cloudinary.url()
                 .transformation(new Transformation()
-                        .width(width).height(height)
-                        .border("2px_solid_black").crop(action))
+                        .width(0.5).height(10).border("2px_solid_black").crop("scale"))
                 .imageTag(name);
     }
+
+//    public String test(){
+//        return cloudinary.url().transformation(new Transformation()
+//                .width(173).height(200).crop("fill").chain()
+//                .overlay(new Layer().publicId("hexagon_sample")).flags("cutter")).imageTag("pasta.png");
+//    }
 }

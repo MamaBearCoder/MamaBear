@@ -48,11 +48,11 @@ public class HomeController {
                 return "redirect:/add";
         }
         try {
-            Map uploadResult = cloudc.upload(file.getBytes(),
-            ObjectUtils.asMap("resourcetype", "auto" ));
+            Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto" ));
             message.setImage(uploadResult.get("url").toString());
             if (result.hasErrors()) {
-                return "messageform";}
+                return "messageform";
+            }
             messageRepository.save(message);
         } catch (IOException e){
             e.printStackTrace();

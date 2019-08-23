@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns: xmlns:font-family-sans-serif="http://www.w3.org/1999/xhtml">
+<head><script src="https://kit.fontawesome.com/9edc0a00e9.js"></script>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Message Board</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-
+    <style type="text/css">
+        body { background: #e6beca !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    </style>
 </head>
 <body>
 <div style="background:transparent !important" class="jumbotron text-center">
-    <h1>MamaBearCoder</h1>
-<h2>Welcome</h2></div>
+    <h1><b>MamaBearCoder</b></h1>
+<p class="lead text-center">
+    <i class="far fa-smile-beam" style="font-size: 150px;"></i>
+    <h2>Welcome to the message board!
+    </p></h2></div>
 
 
 <div th:replace="base :: navlinks"></div>
-<a href="/add">Add New Message</a><br />
-<table>
+
+<table class="table">
     <tr>
         <th>Content</th>
         <th>Date</th>
-        <th>Sent By</th>
+        <th>Submitted By</th>
         <th>Image</th>
         <td>Actions</td>
-        <tr />
+    </tr>
 
     <tr th:each="message : ${messages}">
 
@@ -30,7 +35,7 @@
         <td th:text="${message.date}"></td>
         <td th:text="${message.sentby}"></td>
         <td th:if="${message.image}!= null">
-            <img th:src="${message.image}" class="img-rounded" alt="Cinque Terre"/></td>
+            <img th:src="${message.image}" style="width: 300px;" /></td>
         <td>
             <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
             <a th:href="@{/detail/{id}(id=${message.id})}">Details</a> -
@@ -42,5 +47,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<a href="/add">Add New Message</a><br />
 </body>
 </html>

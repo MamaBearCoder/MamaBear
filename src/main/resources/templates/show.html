@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:font-family-sans-serif="http://www.w3.org/1999/xhtml">
+<head><script src="https://kit.fontawesome.com/9edc0a00e9.js"></script>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Message Board</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-
+    <style type="text/css">
+        body { background: #e6beca !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    </style>
 </head>
 <body>
 <div class="container">
     <div style="background:transparent !important" class="jumbotron text-center">
-        <h1>MamaBearCoder</h1></div>
-  <h2>Welcome</h2>
 
+        <h1>MamaBearCoder</h1></div>
+
+    <p class="lead text-center">
+
+    <h2>Welcome to the message board!
+    </p></h2></div>
 <div th:replace="base :: navlinks"></div>
+
 <a href="/">Show All Messages</a><br />
+
+<i style="height: 24px" class="far fa-smile-beam"></i>
+
 Content: <p th:text="${message.content}"></p>
 Date:<span th:text="${message.date}"></span><br />
 Sent By: <span th:text="${message.sentby}"></span><br />
