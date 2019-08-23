@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Message Board</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+
 </head>
 <body>
-<div class="container">
-    <div class="jumbotron">Total Technique Training</div>
+<div style="background:transparent !important" class="jumbotron text-center">
+    <h1>MamaBearCoder</h1>
+<h2>Welcome</h2></div>
+
+
 <div th:replace="base :: navlinks"></div>
 <a href="/add">Add New Message</a><br />
 <table>
@@ -26,7 +30,7 @@
         <td th:text="${message.date}"></td>
         <td th:text="${message.sentby}"></td>
         <td th:if="${message.image}!= null">
-            <img th:src="${message.image}" /></td>
+            <img th:src="${message.image}" class="img-rounded" alt="Cinque Terre"/></td>
         <td>
             <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
             <a th:href="@{/detail/{id}(id=${message.id})}">Details</a> -
